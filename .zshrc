@@ -1,5 +1,11 @@
-# Set up aliases for zsh
-source ~/.zsh_aliases
+# Run fastfetch on terminal startup
+if [[ $- == *i* ]] && [[ -z "$TMUX" ]] && command -v fastfetch >/dev/null 2>&1; then
+    clear && figlet "Welcome to Zsh!" && fastfetch
+fi
+
+# Load custom aliases and functions
+source ~/.zsh_aliases # Custom aliases
+source ~/.zsh_functions # Custom functions
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -8,7 +14,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# history setup
+# History setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 HISTSIZE=999
@@ -33,7 +39,7 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # Define a clean, custom PATH
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin"                   # Homebrew (Apple Silicon)
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    # Core system binaries
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.12/bin"  # Python 3.12
+# export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.12/bin"  # Python 3.12
 # export PATH="$PATH:$HOME/.cargo/bin"                                # Rust
 # export PATH="$PATH:$HOME/.ghcup/bin:$HOME/.cabal/bin"               # Haskell tools
 # export PATH="$PATH:/Applications/quarto/bin"                        # Quarto CLI

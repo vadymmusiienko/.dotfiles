@@ -90,6 +90,7 @@ alias nt="npm test"
 # Quick edits
 alias zshrc="nvim ~/.zshrc"
 alias aliases="nvim ~/.zsh_aliases"
+alias nvimrc="nvim ~/.config/nvim/init.lua"
 # alias hosts="sudo nvim /etc/hosts"
 
 # Modern alternatives and productivity
@@ -99,13 +100,9 @@ alias search="fzf"
 
 # Utility functions as aliases
 alias weather="curl wttr.in"
+alias moon="curl wttr.in/Moon"
 alias reload="source ~/.zshrc"
 
-# Function to quickly search and display cheat sheets
-cheat() {
-    if [ "$#" -eq 0 ]; then
-        curl cht.sh
-    else
-        curl "cht.sh/$*"
-    fi
-}
+# Fun aliases
+alias matrix="clear && cmatrix"  # Matrix effect in terminal
+alias info="clear && fastfetch" # Display system info with fastfetch
