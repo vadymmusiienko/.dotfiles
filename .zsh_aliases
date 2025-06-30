@@ -3,6 +3,7 @@ alias ls="eza --icons=always"
 alias ll="eza -l --icons=always --git"
 alias la="eza -la --icons=always --git"
 alias lt="eza --tree --icons=always"
+alias lta="eza --tree --all --icons=always --git -I .git"
 alias l1="eza -1 --icons=always"
 
 # Navigation (using zoxide) better cd replacements
@@ -64,7 +65,7 @@ alias vim="nvim"
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias flush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias dsstore="find . -name '*.DS_Store' -type f -ls -delete"
+alias dsstore="/usr/bin/find . -name '*.DS_Store' -type f -ls -delete"
 
 # Development shortcuts
 alias python="python3"
@@ -98,5 +99,13 @@ alias search="fzf"
 
 # Utility functions as aliases
 alias weather="curl wttr.in"
-alias cheat="curl cheat.sh/"
 alias reload="source ~/.zshrc"
+
+# Function to quickly search and display cheat sheets
+cheat() {
+    if [ "$#" -eq 0 ]; then
+        curl cht.sh
+    else
+        curl "cht.sh/$*"
+    fi
+}
