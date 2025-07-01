@@ -7,8 +7,8 @@ selection-foreground = eeeeee
 window-padding-x = 10
 window-padding-y = 30
 window-decoration = auto
-background-opacity = 0.9
-background-blur-radius = 20
+# background-opacity = 0.9
+# background-blur-radius = 20
 fullscreen = true
 macos-non-native-fullscreen = true
 window-width = 120
@@ -55,7 +55,7 @@ macos-icon = xray
 
 # Keybindings
 # Disable specific keybindings (to avoid ;10D)
-keybind = shift+left=ignore
-keybind = shift+right=ignore
-keybind = cmd+shift+left=ignore
-keybind = cmd+shift+right=ignore
+# keybind = shift+left=ignore
+# keybind = shift+right=ignore
+# keybind = cmd+shift+left=ignore
+# keybind = cmd+shift+right=ignore
