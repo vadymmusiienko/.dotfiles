@@ -90,8 +90,9 @@ alias nt="npm test"
 
 # Quick edits
 alias zshrc="nvim ~/.zshrc"
-alias aliases="nvim ~/.zsh_aliases"
-alias functions="nvim ~/.zsh_functions"
+alias zshrc_main="nvim ~/.config/zsh/zsh_main"
+alias aliases="nvim ~/.config/zsh/zsh_aliases"
+alias functions="nvim ~/.config/zsh/zsh_functions"
 alias nvimrc="nvim ~/.config/nvim/init.lua"
 # alias hosts="sudo nvim /etc/hosts"
 

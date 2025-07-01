@@ -1,6 +1,6 @@
-# Run fastfetch on terminal startup
+# Run fastfetch on terminal startup (Not in TMUX though)
 if [[ $- == *i* ]] && [[ -z "$TMUX" ]] && command -v fastfetch >/dev/null 2>&1; then
-    clear && figlet "Welcome to Zsh!" && fastfetch
+    clear && figlet -f slant -w 100 "Welcome to Ghostty!" && fastfetch
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -39,5 +39,3 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    # Core syste
 # export PATH="$PATH:$HOME/.cargo/bin"                                # Rust
 # export PATH="$PATH:$HOME/.ghcup/bin:$HOME/.cabal/bin"               # Haskell tools
 # export PATH="$PATH:/Applications/quarto/bin"                        # Quarto CLI
-
-[ -f "/Users/smokiemac/.ghcup/env" ] && . "/Users/smokiemac/.ghcup/env" # ghcup-env
