@@ -40,6 +40,7 @@ alias top="htop"
 alias h="history"
 alias c="clear"
 alias x="exit"
+alias preview="viu"
 
 # Directory operations
 alias mkdir="mkdir -pv"
