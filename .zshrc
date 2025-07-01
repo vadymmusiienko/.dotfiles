@@ -1,3 +1,4 @@
+# Load main Zsh configuration
 source ~/.config/zsh/zsh_main
 
 # Load custom aliases and functions
