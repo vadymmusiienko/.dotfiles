@@ -26,3 +26,6 @@ _darcs
 .*\.bak       # Generic backups
 .*\.tmp       # Generic temporary files
 
+# Custom ignores
+README\.md    # Ignore all README.md files
+^scripts      # Ignore scripts folder
