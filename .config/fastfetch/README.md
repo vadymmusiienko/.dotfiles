@@ -1,4 +1,4 @@
-# Fastfetch System Information
+# Fastfetch
 
 **Links:** [GitHub Repository](https://github.com/fastfetch-cli/fastfetch)
 
