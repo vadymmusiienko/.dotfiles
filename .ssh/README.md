@@ -1,0 +1,1 @@
+## Links .ssh/config to .dotfiles/.ssh/config
