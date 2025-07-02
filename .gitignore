@@ -6,13 +6,6 @@
 .ssh/known_hosts*
 .ssh/authorized_keys*
 
-# GitHub Copilot auth tokens and user data
-.config/github-copilot/hosts.json
-.config/github-copilot/versions.json
-
-# GitHub CLI auth tokens
-.config/gh/hosts.yml
-
 # OS generated files
 .DS_Store
 .DS_Store?
