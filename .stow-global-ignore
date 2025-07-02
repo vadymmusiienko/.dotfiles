@@ -29,3 +29,4 @@ _darcs
 # Custom ignores
 README\.md    # Ignore all README.md files
 ^scripts      # Ignore scripts folder
+^brew         # Ignore brew folder

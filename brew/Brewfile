@@ -1,0 +1,199 @@
+# Brewfile - Homebrew Bundle Configuration
+# Usage: brew bundle install
+# To generate from current setup: brew bundle dump
+
+# ============================================================================
+# ESSENTIAL PACKAGES
+# ============================================================================
+
+# Version control system - absolutely essential for any development work
+brew "git"
+
+# Python programming language and package manager
+brew "python"
+
+# JavaScript runtime environment - required for web development and many tools
+brew "node"
+
+# Modern, extensible vim editor with better defaults and plugin support
+brew "neovim"
+
+# GNU Compiler Collection - essential for compiling C/C++ code and building from source
+brew "gcc"
+
+# Beautiful terminal UI for git operations - makes complex git workflows intuitive
+brew "lazygit"
+
+# ============================================================================
+# SYSTEM UTILITIES & CLI ENHANCEMENTS
+# ============================================================================
+
+# Fast, user-friendly alternative to 'find' with intuitive syntax and better performance
+brew "fd"
+
+# Extremely fast grep alternative optimized for searching code repositories
+brew "ripgrep"
+
+# Displays directory structure in a tree format - great for understanding project layouts
+brew "tree"
+
+# Modern replacement for 'ls' with colors, icons, and git status integration
+brew "eza"
+
+# Non-interactive network downloader - essential for downloading files via HTTP/HTTPS
+brew "wget"
+
+# Smart 'cd' replacement that learns your navigation patterns and jumps to frequent directories
+brew "zoxide"
+
+# Symlink farm manager - perfect for managing dotfiles by creating organized symlinks
+brew "stow"
+
+# Cat clone with syntax highlighting, git integration, and automatic paging
+brew "bat"
+
+# Command-line fuzzy finder - incredibly useful for searching files, command history, etc.
+brew "fzf"
+
+# Interactive process viewer - much better than the default 'top' command
+brew "htop"
+
+# Command-line JSON processor - essential for working with APIs and JSON data
+brew "jq"
+
+# Simplified man pages with practical examples - faster way to learn commands  
+brew "tldr"
+
+# More intuitive disk usage analyzer - better alternative to 'du'
+brew "dust"
+
+# Modern process viewer with colored output and better information display
+brew "procs"
+
+# Terminal image viewer - display images directly in your terminal
+brew "viu"
+
+# Terminal multiplexer - run multiple terminal sessions in one window, persistent sessions
+brew "tmux"
+
+# ============================================================================
+# SHELL ENHANCEMENTS
+# ============================================================================
+
+# Syntax highlighting for zsh commands as you type - improves shell experience
+brew "zsh-syntax-highlighting"
+
+# Beautiful and fast zsh theme with git integration and customizable prompts
+brew "powerlevel10k"
+
+# ============================================================================
+# MEDIA & FILE PROCESSING
+# ============================================================================
+
+# Swiss army knife of video/audio processing - convert, edit, stream media files
+brew "ffmpeg"
+
+# Powerful image manipulation toolkit - resize, convert, edit images from command line
+brew "imagemagick"
+
+# ============================================================================
+# SPECIALIZED TOOLS
+# ============================================================================
+
+# OCR engine for extracting text from images - useful for digitizing documents
+brew "tesseract"
+
+# Lightweight, serverless SQL database engine - used by many applications
+brew "sqlite"
+
+# ============================================================================
+# FUN & VISUAL TOOLS
+# ============================================================================
+
+# Matrix-style falling characters screensaver for terminal - because why not!
+brew "cmatrix"
+
+# Convert images to ASCII art in terminal - great for terminal-based presentations
+brew "jp2a"
+
+# Fast system information display tool - show off your setup in style
+brew "fastfetch"
+
+# ============================================================================
+# GUI APPLICATIONS (CASKS)
+# ============================================================================
+
+# Powerful Spotlight replacement with workflows, calculator, and extensibility
+cask "raycast"
+
+# Fast, GPU-accelerated terminal emulator with modern features
+cask "ghostty"
+
+# Popular, extensible code editor with huge ecosystem of extensions
+cask "visual-studio-code"
+
+# Containerization platform - run applications in isolated environments
+cask "docker"
+
+# Password manager - secure storage for passwords, credit cards, notes
+cask "1password"
+
+# Thoroughly uninstall applications and their associated files
+cask "appcleaner"
+
+# Voice and text chat platform for communities and gaming
+cask "discord"
+
+# Official GitHub desktop client for git repository management
+cask "github"
+
+# Modern media player with support for virtually all video/audio formats
+cask "iina"
+
+# Window management tool - snap windows to screen edges and corners
+cask "magnet"
+
+# Instant messaging app with focus on speed and security
+cask "telegram"
+
+# Video conferencing platform for meetings and webinars
+cask "zoom"
+
+# ============================================================================
+# PRODUCTIVITY & SYSTEM ENHANCEMENTS
+# ============================================================================
+
+# Windows-style Alt+Tab window switcher for macOS
+cask "alt-tab"
+
+# Programming font with built-in icons and symbols - great for terminal and coding
+cask "font-meslo-lg-nerd-font"
+
+# ============================================================================
+# OPTIONAL PACKAGES (COMMENTED OUT)
+# Uncomment these if you need them for your specific workflow
+# ============================================================================
+
+# Statistical computing language - primarily used for data science and analysis
+# brew "r"
+
+# Java Development Kit - required for Java development and some applications
+# brew "openjdk"
+
+# NoSQL document database - popular for web applications
+# brew "mongodb-community"
+
+# Alternative web browser known for innovative tab management
+# cask "arc"
+
+# API testing tool - modern alternative to Postman for REST API development
+# cask "bruno"
+
+# Fast GPU-accelerated terminal emulator (alternative to ghostty)
+# cask "alacritty"
+
+# Google's web browser - most popular browser worldwide
+# cask "google-chrome"
+
+# Screenshot annotation tool with markup capabilities
+cask "shottr"
