@@ -76,10 +76,10 @@ alias jsonpp="jq ."
 alias sqlite="sqlite3"
 
 # Node.js shortcuts
-alias ni="npm install"
-alias nr="npm run"
-alias ns="npm start"
-alias nt="npm test"
+# alias ni="npm install"
+# alias nr="npm run"
+# alias ns="npm start"
+# alias nt="npm test"
 
 # Docker shortcuts
 # alias d="docker"
