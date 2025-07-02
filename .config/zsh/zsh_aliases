@@ -124,4 +124,5 @@ alias tmkt='tmux kill-session -t'
 alias tm-work='tmux new-session -d -s work'
 alias tm-dev='tmux new-session -d -s dev'
 alias tm-main='tmux attach-session -t main || tmux new-session -s main'
-alias tm-kill-all='tmux kill-server'
+alias tmka='tmux kill-server'
+
