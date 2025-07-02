@@ -62,7 +62,7 @@ brew "htop"
 brew "jq"
 
 # Simplified man pages with practical examples - faster way to learn commands  
-brew "tldr"
+brew "tealdeer"
 
 # More intuitive disk usage analyzer - better alternative to 'du'
 brew "dust"
