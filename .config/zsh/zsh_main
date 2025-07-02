@@ -22,8 +22,3 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ---- Zoxide (better cd) ---- KEEP THIS AT THE END
 eval "$(zoxide init zsh)"
-
-# Run fastfetch on terminal startup (Not in TMUX though) - KEEP THIS AT THE END
-if [[ $- == *i* ]] && [[ -z "$TMUX" ]] && command -v fastfetch >/dev/null 2>&1; then
-    clear && figlet -f slant -w 100 "Welcome to Ghostty!" && fastfetch
-fi
