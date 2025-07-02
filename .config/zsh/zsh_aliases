@@ -108,7 +108,7 @@ alias reload="source ~/.zshrc"
 
 # Fun aliases
 alias matrix="clear && cmatrix"  # Matrix effect in terminal
-alias info="clear && fastfetch" # Display system info with fastfetch
+alias info="clear && figlet -f slant -w 100 'Welcome to Ghostty!' && fastfetch" # Display system info with fastfetch
 
 # Tmux aliases
 alias tm='tmux'
@@ -125,4 +125,3 @@ alias tm-work='tmux new-session -d -s work'
 alias tm-dev='tmux new-session -d -s dev'
 alias tm-main='tmux attach-session -t main || tmux new-session -s main'
 alias tm-kill-all='tmux kill-server'
-
