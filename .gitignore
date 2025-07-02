@@ -1,0 +1,36 @@
+# SSH Keys and sensitive files
+.ssh/id_*
+.ssh/*_rsa*
+.ssh/*_ed25519*
+.ssh/*_ecdsa*
+.ssh/known_hosts*
+.ssh/authorized_keys*
+
+# GitHub Copilot auth tokens and user data
+.config/github-copilot/hosts.json
+.config/github-copilot/versions.json
+
+# GitHub CLI auth tokens
+.config/gh/hosts.yml
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor backups and swap files
+*~
+.*.swp
+.*.swo
+*.tmp
+
+# Log files
+*.log
+
+# Local environment files
+.env
+.env.local
