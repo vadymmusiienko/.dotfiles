@@ -1,4 +1,6 @@
-# Theme - Rose Pine
+# --- Ghostty Config File ---
+
+# Theme (Rose Pine)
 theme = "rose-pine"
 selection-background = 1d3c3b
 selection-foreground = eeeeee
@@ -7,14 +9,14 @@ selection-foreground = eeeeee
 window-padding-x = 10
 window-padding-y = 30
 window-decoration = auto
-# background-opacity = 0.9
-# background-blur-radius = 20
 fullscreen = true
 macos-non-native-fullscreen = true
 window-width = 120
 window-height = 45
 window-theme = auto
 resize-overlay = after-first
+# background-opacity = 0.9
+# background-blur-radius = 20
 
 # Font configuration
 font-family = "MesloLGS Nerd Font Mono"
@@ -23,14 +25,10 @@ font-size = 16
 font-thicken = true
 adjust-underline-position = 40%
 adjust-underline-thickness = -60%
-# font-feature = -liga  # Disable ligatures
 font-feature = +liga
-
+# font-feature = -liga  # Disable ligatures
 
 # Cursor settings
-# cursor-style = block
-# cursor-style-blink = false
-# shell-integration-features = no-cursor
 cursor-color = #ff0078
 
 # Shell settings
