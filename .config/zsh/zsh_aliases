@@ -1,9 +1,9 @@
 # File operations (using eza) better ls replacements
-alias ls="eza --icons=always"
-alias ll="eza -l --icons=always --git"
-alias la="eza -la --icons=always --git"
-alias lt="eza --tree --icons=always"
-alias lta="eza --tree --all --icons=always --git -I .git"
+alias ls="eza --icons=always --group-directories-first --sort=extension"
+alias ll="eza -l --icons=always --git --sort=extension"
+alias la="eza -la --icons=always --git --group-directories-first --sort=extension"
+alias lt="eza --tree --icons=always --group-directories-first --sort=extension"
+alias lta="eza --tree --all --icons=always --git --group-directories-first -I .git --sort=extension"
 alias l1="eza -1 --icons=always"
 
 # Navigation (using zoxide) better cd replacements
