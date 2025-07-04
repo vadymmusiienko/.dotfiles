@@ -157,14 +157,14 @@ cask "magnet"
 cask "telegram"
 
 # Video conferencing platform for meetings and webinars
-cask "zoom"
+# cask "zoom"
 
 # ============================================================================
 # PRODUCTIVITY & SYSTEM ENHANCEMENTS
 # ============================================================================
 
 # Windows-style Alt+Tab window switcher for macOS
-cask "alt-tab"
+# cask "alt-tab"
 
 # Programming font with built-in icons and symbols - great for terminal and coding
 cask "font-meslo-lg-nerd-font"
@@ -184,7 +184,7 @@ cask "font-meslo-lg-nerd-font"
 # brew "mongodb-community"
 
 # Alternative web browser known for innovative tab management
-# cask "arc"
+cask "arc"
 
 # API testing tool - modern alternative to Postman for REST API development
 # cask "bruno"
@@ -193,7 +193,7 @@ cask "font-meslo-lg-nerd-font"
 # cask "alacritty"
 
 # Google's web browser - most popular browser worldwide
-# cask "google-chrome"
+cask "google-chrome"
 
 # Screenshot annotation tool with markup capabilities
 cask "shottr"
