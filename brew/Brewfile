@@ -156,6 +156,9 @@ cask "magnet"
 # Instant messaging app with focus on speed and security
 cask "telegram"
 
+# Minecraft
+cask "minecraft"
+
 # Video conferencing platform for meetings and webinars
 # cask "zoom"
 
