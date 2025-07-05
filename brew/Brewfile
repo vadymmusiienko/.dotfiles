@@ -135,9 +135,6 @@ cask "visual-studio-code"
 # Containerization platform - run applications in isolated environments
 cask "docker"
 
-# Password manager - secure storage for passwords, credit cards, notes
-cask "1password"
-
 # Thoroughly uninstall applications and their associated files
 cask "appcleaner"
 
@@ -158,6 +155,9 @@ cask "telegram"
 
 # Minecraft
 cask "minecraft"
+
+# Password manager - secure storage for passwords, credit cards, notes
+cask "bitwarden"
 
 # Video conferencing platform for meetings and webinars
 # cask "zoom"
