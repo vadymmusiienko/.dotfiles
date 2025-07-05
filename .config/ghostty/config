@@ -2,13 +2,13 @@
 
 # Theme (Rose Pine)
 theme = "rose-pine"
-selection-background = 1d3c3b
-selection-foreground = eeeeee
+#selection-background = 1d3c3b
+#selection-foreground = eeeeee
 
 # Window settings
 window-padding-x = 10
 window-padding-y = 30
-window-decoration = auto
+window-decoration = false
 fullscreen = true
 macos-non-native-fullscreen = true
 window-width = 120
