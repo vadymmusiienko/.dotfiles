@@ -1,30 +1,41 @@
-[filter "lfs"]
+[filter "lfs"] # Large files stograge settings
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [user]
 	name = Vadym Musiienko
 	email = musiienkovadym@gmail.com
+  # email = vmmv2023@mymail.pomona.edu
+ 
 [core]
-    editor = code --wait
-    autocrlf = input
-    pager = diff-so-fancy | less --tabs=4 -RF
+    editor = nvim -c "startinsert"
+    autocrlf = input # Fixes Windows line endings
+    pager = diff-so-fancy | less --tabs=4 -RF # Prettiese diff
+	  excludesfile = ~/.config/git/ignore
+
 [diff]
 	tool = vscode
+
 [difftool "vscode"]
 	cmd = "code --wait --diff $LOCAL $REMOTE"
+
 [init]
 	defaultBranch = main
-[interactive]
+
+[interactive] # Prettier patch mode (git add -p)
     diffFilter = diff-so-fancy --patch
+
 [color]
-	ui = true
+	ui = true # Colored output globally
+
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+
 [color "diff"]
 	meta = 11
 	frag = magenta bold
