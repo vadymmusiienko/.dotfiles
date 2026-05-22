@@ -26,3 +26,7 @@ brew bundle --file ~/.dotfiles/brew/Brewfile
 # Set up dotfiles
 cd ~/.dotfiles && stow .
 ```
+
+## Other notes
+
+.hushfile is used to suppress all post-login messages
