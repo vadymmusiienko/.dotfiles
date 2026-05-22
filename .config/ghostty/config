@@ -1,7 +1,7 @@
 # --- Ghostty Config File ---
 
 # Theme (Rose Pine)
-theme = "rose-pine"
+theme = "Rose Pine"
 #selection-background = 1d3c3b
 #selection-foreground = eeeeee
 
@@ -15,6 +15,7 @@ window-width = 120
 window-height = 45
 window-theme = auto
 resize-overlay = after-first
+maximize = true
 # background-opacity = 0.9
 # background-blur-radius = 20
 
@@ -32,7 +33,7 @@ font-feature = +liga
 cursor-color = #ff0078
 
 # Shell settings
-shell-integration-features = cursor,sudo,title
+shell-integration-features = cursor,sudo,title,ssh-terminfo,ssh-env
 shell-integration = detect
 
 # Mouse settings
