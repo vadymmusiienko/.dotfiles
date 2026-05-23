@@ -225,6 +225,9 @@ cask "claude-code"
 # Spofify
 cask "spotify"
 
+# Google drive
+cask "google-drive"
+
 # Adobe Creative Cloud (Photoshop)
 # cask "adobe-creative-cloud"
 
