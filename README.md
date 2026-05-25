@@ -30,3 +30,14 @@ cd ~/.dotfiles && stow .
 ## Other notes
 
 .hushfile is used to suppress all post-login messages
+
+
+## MacOS redownload
+1. First, connect to wifi
+2. clone dot files to the root
+3. Install all apps using Brewfile
+4. Run stow . from .dotfiles
+5. Download all personal files from cloud
+6. Sign into icloud
+7. SSH keys in bitwarden (copy both private and public to .ssh)
+
