@@ -113,6 +113,9 @@ brew "yt-dlp"
 # ASCII art text generator
 brew "figlet"
 
+# Tree sitter for neovim config
+brew "tree-sitter-cli"
+
 # ============================================================================
 # SHELL ENHANCEMENTS
 # ============================================================================
