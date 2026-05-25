@@ -25,6 +25,9 @@ brew "neovim"
 # GNU Compiler Collection - essential for compiling C/C++ code and building from source
 brew "gcc"
 
+# Scons - substitute for 'make' (Used in gem5)
+brew "scons"
+
 # Beautiful terminal UI for git operations - makes complex git workflows intuitive
 brew "lazygit"
 
