@@ -15,6 +15,9 @@ brew "python"
 # JavaScript runtime environment - required for web development and many tools
 brew "node"
 
+# Java runtime / SDK
+brew openjdk
+
 # Modern, extensible vim editor with better defaults and plugin support
 brew "neovim"
 
