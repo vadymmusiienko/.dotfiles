@@ -49,6 +49,9 @@ brew "r"
 # Conda package manager (NOTE: needs to be added to PATH manually, already in .zshrc)
 cask "miniconda"
 
+# HazeOver dims background windows
+cast "hazeover"
+
 # ============================================================================
 # SYSTEM UTILITIES & CLI ENHANCEMENTS
 # ============================================================================
