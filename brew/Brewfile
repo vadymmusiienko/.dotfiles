@@ -46,12 +46,6 @@ brew "python@3.14"
 # R language for data science
 brew "r"
 
-# Conda package manager (NOTE: needs to be added to PATH manually, already in .zshrc)
-cask "miniconda"
-
-# HazeOver dims background windows
-cast "hazeover"
-
 # ============================================================================
 # SYSTEM UTILITIES & CLI ENHANCEMENTS
 # ============================================================================
@@ -243,6 +237,16 @@ cask "google-drive"
 
 # Adobe Creative Cloud (Photoshop)
 # cask "adobe-creative-cloud"
+
+# Conda package manager (NOTE: needs to be added to PATH manually, already in .zshrc)
+cask "miniconda"
+
+# HazeOver dims background windows
+cask "hazeover"
+
+# Changes hue saturation/colors at night/evening
+cask "flux-app"
+
 
 # ============================================================================
 # PRODUCTIVITY & SYSTEM ENHANCEMENTS
