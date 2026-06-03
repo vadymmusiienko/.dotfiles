@@ -21,6 +21,7 @@ return {
         "clang-format",
         "stylua",
         "prettier",
+        "ruff",
       },
     },
   },
