@@ -80,6 +80,9 @@ brew "fzf"
 # Interactive process viewer - much better than the default 'top' command
 brew "htop"
 
+# Same as htop but more functionality
+brew "btop"
+
 # Command-line JSON processor - essential for working with APIs and JSON data
 # brew "jq"
 
