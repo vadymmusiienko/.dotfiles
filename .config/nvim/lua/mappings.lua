@@ -8,3 +8,9 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- NOTE: These are vim-tmux navigation keymaps
+map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
+map("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>")
