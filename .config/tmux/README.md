@@ -1,74 +1,105 @@
-# Tmux Terminal Multiplexer
+# Tmux Configuration
 
-**Links:** [Official Website](https://tmux.github.io/) | [GitHub Repository](https://github.com/tmux/tmux)
+My personal tmux setup. Config lives at `~/.config/tmux/tmux.conf` and is managed
+through my dotfiles (`~/.dotfiles`).
+
+**Links:** [Official Website](https://tmux.github.io/) | [GitHub](https://github.com/tmux/tmux)
+
+For a full, searchable cheat sheet of tmux commands and shortcuts (including these
+customizations), see my [tmux_cheat_sheet](https://github.com/vadymmusiienko/tmux_cheat_sheet) repo.
 
 ## What is Tmux
 
-Tmux is a terminal multiplexer that allows you to create multiple terminal sessions, split windows into panes, and manage them all from a single interface. It's perfect for organizing your workflow and maintaining persistent sessions.
+Tmux is a terminal multiplexer: multiple terminal sessions, windows split into panes,
+all managed from one interface, with persistent sessions you can detach and reattach.
 
 ## Installation & Setup
 
-- Install via Homebrew: `brew install tmux` (included in Brewfile)
-- Config file location: `~/.config/tmux/tmux.conf`
-- Start tmux: `tmux` (aliased to `tm`) or `tmux new-session -s session-name`
+- Install via Homebrew: `brew install tmux` (included in the Brewfile)
+- Config file: `~/.config/tmux/tmux.conf`
+- Plugins are managed by [TPM](https://github.com/tmux-plugins/tpm). On a fresh machine:
+  ```sh
+  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+  ```
+  then start tmux and press `prefix + I` to install plugins.
+- Start tmux: `tmux` (aliased to `tm`) or `tmux new-session -s name`
 
-## Tmux Aliases (Essential)
+## The prefix
 
-### Basic Commands
-- `tm` - Start tmux
-- `tma` - Attach to the most recent session
-- `tmn` - Create a new session
-- `tml` - List all active sessions
-- `tmk` - Kill the current session
+The prefix is **`Ctrl-Space`** (changed from the default `Ctrl-b`). Everywhere below,
+`prefix` means `Ctrl-Space`.
 
-### Session Management
-- `tmat` - Attach to a specific session by name
-- `tmnt` - Create a new session with a specific name
-- `tmkt` - Kill a specific session by name
+## Custom key bindings
 
-### Workflow Sessions
-- `tm-work` - Create a detached "work" session
-- `tm-dev` - Create a detached "dev" session  
-- `tm-main` - Attach to "main" session, or create it if it doesn't exist
+| Action                          | Keys               | Default                 |
+| ------------------------------- | ------------------ | ----------------------- |
+| Reload config                   | `prefix` `r`       | —                       |
+| Split pane right (side by side) | `prefix` `\`       | `prefix %`              |
+| Split pane down (stacked)       | `prefix` `-`       | `prefix "`              |
+| New window (keeps current path) | `prefix` `c`       | `prefix c`              |
+| Navigate panes (vim-aware)      | `Ctrl-h/j/k/l`     | `prefix ←↓↑→`           |
+| Resize pane                     | `Shift + ←↓↑→`     | `prefix Ctrl-←↓↑→`      |
+| Previous / next window          | `Ctrl-Shift-← / →` | `prefix p` / `prefix n` |
+| Zoom pane                       | `prefix` `z`       | `prefix z`              |
+| Detach                          | `prefix` `d`       | `prefix d`              |
 
-### System Control
-- `tmka` - Kill all tmux sessions and the server
+`Ctrl-h/j/k/l` is provided by [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator):
+the same keys move seamlessly between Neovim splits and tmux panes.
 
-## Tmux-specific key bindings to know
+## Copy mode (vi style)
 
-**Key Bindings (with Ctrl-Space prefix):**
-- `Ctrl-Space + r` - Reload tmux configuration
-- `Ctrl-Space + \` - Split pane horizontally
-- `Ctrl-Space + -` - Split pane vertically
-- `Ctrl-Space + h/j/k/l` - Navigate panes (vim-style)
-- `Ctrl-Space + c` - Create new window
+`mode-keys vi`. Enter copy mode with `prefix [`.
 
-**Window & Pane Management:**
-- `Shift + Arrow Keys` - Resize panes
-- `Ctrl-Shift + Left/Right` - Switch between windows
-- `Ctrl-Space + d` - Detach from session
-- `Ctrl-Space + x` - Kill current pane
-- `Ctrl-Space + &` - Kill current window
+| Action                               | Keys           |
+| ------------------------------------ | -------------- |
+| Begin selection                      | `v`            |
+| Copy selection (to system clipboard) | `y` or `Enter` |
+| Paste tmux buffer                    | `prefix ]`     |
 
-**Copy Mode (Vi-style):**
-- `Ctrl-Space + [` - Enter copy mode
-- `v` - Begin selection (in copy mode)
-- `y` - Copy selection to clipboard
-- `Ctrl-Space + ]` - Paste from tmux buffer
+Clipboard integration is OS-aware: `pbcopy` on macOS, `wl-copy` on Wayland, `xclip` on X11.
 
-**Useful Commands:**
-- `tmux capture-pane -t <session>:<window> -p` - Capture pane content
-- `tmux send-keys -t <session>:<window> "command" Enter` - Send commands to pane
+## Plugins (TPM)
 
-## Tmux config file notes
+| Plugin                                                                  | Purpose                                                     |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [tpm](https://github.com/tmux-plugins/tpm)                              | Plugin manager                                              |
+| [tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)          | Sane defaults (also sets `focus-events`, `escape-time 0`)   |
+| [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) | `Ctrl-h/j/k/l` pane/split navigation with Neovim            |
+| [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)        | Save/restore sessions — `prefix S` save, `prefix R` restore |
+| [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)        | Auto-save every 15 min and auto-restore on start            |
 
-- **Custom prefix**: Changed from default Ctrl-b to Ctrl-Space
-- **Mouse support**: Enabled for easier pane resizing and scrolling
-- **Vim-style navigation**: Uses h/j/k/l keys for pane navigation
-- **Intuitive splits**: Backslash (\) for horizontal splits and dash (-) for vertical splits, more logical than default % and "
-- **Rose Pine theme**: Custom color scheme with muted colors for comfortable long-term use
-- **Persistent sessions**: Configured to not exit when closing sessions, allowing you to maintain multiple workspaces
-- **Copy mode**: Vi-style copy mode with clipboard integration for macOS (pbcopy)
-- **Window management**: Automatic renumbering when windows are closed, keeps numbering clean and sequential
-- **Performance**: Aggressive resize enabled for better multi-client usage, 10,000 line scrollback buffer
-- **Plugin support**: Commented TPM (Tmux Plugin Manager) configuration (Add later)
+Sessions (including pane contents) survive reboots: continuum restores the last saved
+environment automatically when tmux starts.
+
+**Managing plugins:** `prefix I` install, `prefix U` update, `prefix alt-u` clean.
+
+## Shell aliases
+
+Defined in `~/.config/zsh/zsh_aliases`:
+
+| Alias     | Command                                                     |
+| --------- | ----------------------------------------------------------- |
+| `tm`      | `tmux`                                                      |
+| `tma`     | `tmux attach`                                               |
+| `tmn`     | `tmux new-session`                                          |
+| `tml`     | `tmux list-sessions`                                        |
+| `tmk`     | `tmux kill-session`                                         |
+| `tmat`    | `tmux attach-session -t`                                    |
+| `tmnt`    | `tmux new-session -t`                                       |
+| `tmkt`    | `tmux kill-session -t`                                      |
+| `tm-work` | `tmux new-session -d -s work`                               |
+| `tm-dev`  | `tmux new-session -d -s dev`                                |
+| `tm-main` | `tmux attach-session -t main \|\| tmux new-session -s main` |
+| `tmka`    | `tmux kill-server` (kills all sessions + server)            |
+
+## Config highlights
+
+- **Custom prefix** `Ctrl-Space` — easier to reach than `Ctrl-b`.
+- **Truecolor** — `tmux-256color` + `terminal-features ",*:RGB"` for accurate colors.
+- **Intuitive splits** — `\` for side-by-side, `-` for stacked.
+- **Mouse mode** — on, for resizing/scrolling.
+- **Rose Pine** status bar — muted colors for long sessions.
+- **Persistent sessions** — `detach-on-destroy off`; resurrect + continuum auto-restore.
+- **Clean window numbering** — `renumber-windows on`.
+- **Quiet** — activity/bell monitoring disabled (no flashing or beeps).
+- **Multi-client friendly** — `aggressive-resize on`, 10,000-line scrollback.
