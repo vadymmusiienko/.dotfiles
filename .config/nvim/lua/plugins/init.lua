@@ -17,11 +17,21 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- c / c++
         "clangd",
         "clang-format",
+        -- lua
+        "lua-language-server",
         "stylua",
-        "prettier",
+        -- python
+        "basedpyright",
         "ruff",
+        -- web (js / ts / html / css)
+        "typescript-language-server",
+        "eslint-lsp",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
       },
     },
   },
@@ -29,13 +39,26 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "vimdoc",
+        "lua",
+        "c",
+        "cpp",
+        "python",
+        "javascript",
+        "typescript",
+        "tsx",
+        "html",
+        "css",
+        "json",
+        "yaml",
+        "markdown",
+        "markdown_inline",
+      },
+    },
+  },
 }
