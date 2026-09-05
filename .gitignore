@@ -33,3 +33,6 @@ Thumbs.db
 
 # htop writes runtime state (window size, sort order) into this file
 .config/htop/
+
+# Raycast compiled extension bundles (stable + beta), not settings
+.config/raycast*/
