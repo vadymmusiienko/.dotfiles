@@ -10,3 +10,5 @@
 *.swo
 # Private
 .env
+
+**/.claude/settings.local.json
