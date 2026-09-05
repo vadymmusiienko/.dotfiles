@@ -2,6 +2,9 @@
 # Usage: brew bundle install
 # To generate from current setup: brew bundle dump
 
+# Third-party tap (required for opensuperwhisper)
+tap "my-monkeys/tap"
+
 # ============================================================================
 # ESSENTIAL PACKAGES
 # ============================================================================
@@ -16,7 +19,7 @@ brew "python"
 brew "node"
 
 # Java runtime / SDK (also run: sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk)
-# ! Needs a Simlink
+# ! Needs a Symlink
 brew "openjdk"
 
 # Modern, extensible vim editor with better defaults and plugin support
@@ -34,17 +37,17 @@ brew "lazygit"
 # Git history rewriting tool
 brew "git-filter-repo"
 
+# Git extension for versioning large files (models, datasets, media)
+brew "git-lfs"
+
 # GNU debugger
 brew "gdb"
 
-# Java development kit
-brew "openjdk"
-
-# Python 3.14
-brew "python@3.14"
-
 # R language for data science
 brew "r"
+
+# Fast, opinionated formatter for R code (RStudio uses it: use_air_formatter)
+brew "air"
 
 # ============================================================================
 # SYSTEM UTILITIES & CLI ENHANCEMENTS
@@ -80,9 +83,6 @@ brew "fzf"
 # Interactive process viewer - much better than the default 'top' command
 brew "htop"
 
-# Same as htop but more functionality
-brew "btop"
-
 # Command-line JSON processor - essential for working with APIs and JSON data
 # brew "jq"
 
@@ -116,6 +116,9 @@ brew "figlet"
 # Tree sitter for neovim config
 brew "tree-sitter-cli"
 
+# Official Amazon AWS command-line interface
+brew "awscli"
+
 # ============================================================================
 # SHELL ENHANCEMENTS
 # ============================================================================
@@ -136,6 +139,9 @@ brew "ffmpeg"
 # Powerful image manipulation toolkit - resize, convert, edit images from command line
 brew "imagemagick"
 
+# PostScript and PDF interpreter - backs imagemagick's PDF/EPS handling
+brew "ghostscript"
+
 # ============================================================================
 # SPECIALIZED TOOLS
 # ============================================================================
@@ -151,6 +157,8 @@ brew "sqlite"
 # ============================================================================
 
 brew "aom"
+# Package compiler and linker metadata toolkit (pkg-config successor)
+brew "pkgconf"
 brew "openssl@3"
 brew "glib"
 brew "cairo"
@@ -194,7 +202,7 @@ cask "visual-studio-code"
 cask "cursor"
 
 # Containerization platform - run applications in isolated environments
-cask "docker"
+cask "docker-desktop"
 
 # Thoroughly uninstall applications and their associated files
 cask "appcleaner"
@@ -244,11 +252,26 @@ cask "google-drive"
 # Conda package manager (NOTE: needs to be added to PATH manually, already in .zshrc)
 cask "miniconda"
 
-# HazeOver dims background windows
-cask "hazeover"
-
 # Changes hue saturation/colors at night/evening
 cask "flux-app"
+
+# Anthropic's official Claude AI desktop app
+cask "claude"
+
+# .NET SDK - developer platform for C#/.NET projects
+cask "dotnet-sdk"
+
+# Screen and video recording software
+cask "loom"
+
+# IDE for R and Python data science (config tracked in .config/rstudio)
+cask "rstudio"
+
+# Management tool for Unity game engine installs and projects
+cask "unity-hub"
+
+# macOS dictation with local Whisper/Parakeet transcription (needs my-monkeys/tap)
+cask "my-monkeys/tap/opensuperwhisper"
 
 
 # ============================================================================
