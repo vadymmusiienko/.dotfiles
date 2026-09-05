@@ -30,3 +30,6 @@ Thumbs.db
 
 # Tmux plugins (they have .git in them)
 .config/tmux/plugins/
+
+# htop writes runtime state (window size, sort order) into this file
+.config/htop/
