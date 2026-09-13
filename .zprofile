@@ -8,3 +8,6 @@ export PATH="/Library/TeX/texbin:$PATH"                             # Used for L
 export HISTFILE=$HOME/.zhistory                                     # File where history is saved
 export SAVEHIST=1000                                                # Number of history entries to save
 export HISTSIZE=999                                                 # Number of history entries to keep in memory
+
+# ---- C / C++ TOOLING ----
+export CMAKE_EXPORT_COMPILE_COMMANDS=ON                             # Have CMake generate compile_commands.json for clangd

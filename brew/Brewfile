@@ -28,6 +28,12 @@ brew "neovim"
 # GNU Compiler Collection - essential for compiling C/C++ code and building from source
 brew "gcc"
 
+# Cross-platform build system generator - emits compile_commands.json for clangd (CMAKE_EXPORT_COMPILE_COMMANDS=ON is set in .zprofile)
+brew "cmake"
+
+# Records a build and writes compile_commands.json - gives clangd real flags for hand-written Makefile projects
+brew "bear"
+
 # Scons - substitute for 'make' (Used in gem5)
 brew "scons"
 

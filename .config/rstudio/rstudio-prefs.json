@@ -55,5 +55,6 @@
     "python_type": "system",
     "python_version": "3.9.6",
     "python_path": "/usr/bin/python3",
-    "syntax_color_console": true
+    "syntax_color_console": true,
+    "jobs_tab_visibility": "shown"
 }
