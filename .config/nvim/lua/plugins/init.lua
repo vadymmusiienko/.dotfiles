@@ -14,7 +14,13 @@ return {
     },
 
     {
-        "williamboman/mason.nvim",
+        -- williamboman/ transferred the repo to mason-org/; lazy.nvim keys specs
+        -- by the repo name, so the old owner silently resolved to the same
+        -- plugin, but name the current one.
+        "mason-org/mason.nvim",
+        -- NvChad lazy-loads mason on its :Mason* commands. Load it after startup
+        -- as well so the ensure_installed check below actually gets to run.
+        event = "VeryLazy",
         opts = {
             ensure_installed = {
                 -- c / c++
@@ -34,6 +40,32 @@ return {
                 "prettier",
             },
         },
+        -- mason.nvim has no `ensure_installed` option of its own, and NvChad
+        -- v2.5 dropped the :MasonInstallAll command that used to consume one,
+        -- so the list above is inert unless something acts on it. Same shape as
+        -- the treesitter spec below: install whatever is missing, once.
+        config = function(_, opts)
+            require("mason").setup(opts)
+
+            local registry = require "mason-registry"
+            local missing = vim.tbl_filter(function(pkg)
+                local ok, installed = pcall(registry.is_installed, pkg)
+                return ok and not installed
+            end, opts.ensure_installed)
+
+            if #missing > 0 then
+                -- refresh() pulls the package index, so only pay for it when
+                -- there is actually something to install.
+                registry.refresh(function()
+                    for _, pkg in ipairs(missing) do
+                        local ok, handle = pcall(registry.get_package, pkg)
+                        if ok then
+                            handle:install()
+                        end
+                    end
+                end)
+            end
+        end,
     },
 
     -- test new blink

@@ -21,7 +21,7 @@ require "nvchad.autocmds"
 
 -- How far each colour is pulled toward the background. 0 keeps the original
 -- colour, 1 makes the text invisible.
-local DIM = 0.30
+local DIM = 0.40
 
 local ns = vim.api.nvim_create_namespace "inactive_preproc_dim"
 
