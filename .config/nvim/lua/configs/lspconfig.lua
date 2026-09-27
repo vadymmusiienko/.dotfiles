@@ -24,6 +24,10 @@ vim.lsp.config("clangd", {
         "--completion-style=detailed",
         "--header-insertion=never", -- don't auto-add #includes on completion
         "--offset-encoding=utf-16", -- avoids the multi-encoding warning
+        -- clangd writes its routine progress chatter to stderr, which Neovim
+        -- records as ERROR; left at the default this grows lsp.log without
+        -- bound (it had reached 130 MB).
+        "--log=error",
     },
 })
 
