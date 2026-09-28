@@ -1,12 +1,49 @@
-# SSH Keys and sensitive files
+# ---- Secrets and credentials ----
+# Never commit anything that authenticates me
+
+# SSH keys and known hosts
 .ssh/id_*
 .ssh/*_rsa*
 .ssh/*_ed25519*
 .ssh/*_ecdsa*
 .ssh/known_hosts*
 .ssh/authorized_keys*
+.ssh/agent/
 
-# OS generated files
+# Private keys and certificates, anywhere in the tree
+*.pem
+*.key
+*.p12
+*.pfx
+*.gpg
+*.kdbx
+
+# Tool configs that store tokens
+.config/gh/
+.config/github-copilot/
+.config/op/
+.netrc
+.aws/
+.docker/config.json
+.npmrc
+.pypirc
+
+# Local environment files
+.env
+.env.*
+
+# ---- Machine-local state (not configuration) ----
+
+# htop writes runtime state (window size, sort order) into this file
+.config/htop/
+
+# Raycast compiled extension bundles (stable + beta), not settings
+.config/raycast*/
+
+# cagent writes a per-machine id and a first-run marker
+.config/cagent/
+
+# ---- OS generated files ----
 .DS_Store
 .DS_Store?
 ._*
@@ -15,24 +52,14 @@
 ehthumbs.db
 Thumbs.db
 
-# Editor backups and swap files
+# ---- Editor backups and swap files ----
 *~
 .*.swp
 .*.swo
 *.tmp
 
-# Log files
+# ---- Logs ----
 *.log
 
-# Local environment files
-.env
-.env.local
-
-# Tmux plugins (they have .git in them)
+# ---- Plugin checkouts (they contain their own .git) ----
 .config/tmux/plugins/
-
-# htop writes runtime state (window size, sort order) into this file
-.config/htop/
-
-# Raycast compiled extension bundles (stable + beta), not settings
-.config/raycast*/
