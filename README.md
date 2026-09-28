@@ -1,4 +1,4 @@
-# Dotfiles
+# Vadym's Dotfiles
 
 My macOS configuration: shell, terminal, editor, git, and the Homebrew packages
 that back them. Managed with GNU Stow, which symlinks everything in this repo
