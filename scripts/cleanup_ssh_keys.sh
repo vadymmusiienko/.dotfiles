@@ -5,8 +5,8 @@
 
 set -e  # Exit on any error
 
-echo "🗑️  SSH Key Cleanup Script"
-echo "========================="
+echo "SSH Key Cleanup Script"
+echo "======================"
 
 # Colors for output
 RED='\033[0;31m'

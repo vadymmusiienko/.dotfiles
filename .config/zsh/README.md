@@ -1,172 +1,92 @@
-# Modern Zsh Configuration
+# Zsh Configuration
 
-A modular, modern zsh configuration that enhances the terminal experience with powerful tools and aliases
-
-## Structure
-
-This configuration is split into three modular files located in `~/.config/zsh/`:
+My shell setup, split into three files so each piece stays easy to find:
 
 ```
 ~/.config/zsh/
-├── zsh_main      # Core configuration and plugin loading
-├── zsh_aliases   # Command aliases and shortcuts
-└── zsh_functions # Custom shell functions
+  zsh_main      Prompt, plugins, history behavior, key bindings
+  zsh_aliases   Aliases
+  zsh_functions Shell functions
 ```
 
-Your `~/.zshrc` should source all three files:
+`~/.zshrc` sources all three. `~/.zprofile` holds the environment variables
+(PATH, history file and sizes, `CMAKE_EXPORT_COMPILE_COMMANDS`), since those only
+need to be set once per login rather than per shell.
 
-```bash
-source ~/.config/zsh/zsh_main
-source ~/.config/zsh/zsh_aliases
-source ~/.config/zsh/zsh_functions
-```
+## Setup
 
-## Features
+Everything here comes from the Brewfile. The files are linked into place by GNU
+Stow from `~/.dotfiles`, so there is nothing to copy by hand. After a change,
+run `reload` (`source ~/.zshrc`).
 
-### Modern Command Replacements
+Load order in `zsh_main` matters in two places: the Powerlevel10k instant-prompt
+cache has to stay at the top, and `zoxide init` has to stay at the bottom.
 
--   **File listing**: `eza` instead of `ls` with icons and git integration
--   **Navigation**: `zoxide` for smart directory jumping
--   **File search**: `fd` instead of `find`
--   **Text search**: `ripgrep` instead of `grep`
--   **File viewing**: `bat` instead of `cat` with syntax highlighting
--   **System monitoring**: `htop`, `procs`, `dust` for better system info
--   **Help**: `tldr` for concise command examples
+## What is in zsh_main
 
-### Enhanced Navigation
+- **Powerlevel10k** prompt, configured in `~/.config/p10k/p10k.zsh`
+- **zsh-syntax-highlighting** for command coloring as you type
+- **History**: shared across sessions, duplicates dropped first, and history
+  expansion verified before it runs
+- **Arrow keys** search history by the prefix already typed, instead of walking
+  every command
+- **zoxide** replaces `cd`
 
--   `ls`, `ll`, `la` - Beautiful file listings with icons and git status
--   `lt`, `lta` - Tree view of directories
--   `cd` aliased to `z` (zoxide) for intelligent directory jumping
--   `cdi` for interactive directory selection
--   Quick parent directory navigation (`..`, `...`, `....`)
+## Modern replacements
 
-### Development Tools
+These aliases shadow the standard tools, so the habits carry over:
 
--   Python 3 as default (`python`, `pip`)
--   Node.js shortcuts (`ni`, `nr`, `ns`, `nt`)
--   Quick config editing (`zshrc`, `aliases`, `functions`, `nvimrc`)
--   Local development server (`serve`)
--   JSON pretty printing (`jsonpp`)
+| Alias  | Runs     | Instead of |
+| ------ | -------- | ---------- |
+| `ls`   | `eza`    | `ls`       |
+| `cat`  | `bat`    | `cat`      |
+| `grep` | `rg`     | `grep`     |
+| `find` | `fd`     | `find`     |
+| `cd`   | `z`      | `cd`       |
+| `du`   | `dust`   | `du`       |
+| `ps`   | `procs`  | `ps`       |
+| `top`  | `htop`   | `top`      |
+| `man`  | `tldr`   | `man`      |
 
-### System Utilities
+`ls` variants: `ll` long, `la` long with hidden files, `lt` tree, `lta` tree with
+hidden files, `l1` one per line. They all show Nerd Font icons, most sort by
+extension, and `ll`, `la`, and `lta` add git status.
 
--   Safe file operations with confirmation prompts
--   Network utilities and IP information
--   macOS-specific commands (show/hide hidden files, DNS flush)
--   Archive extraction for multiple formats
--   Backup and password generation functions
+Because `grep`, `find`, and `man` are shadowed, scripts that need the real tool
+should call it directly (`command grep`, `/usr/bin/find`).
 
-### Terminal Enhancements
+## Other aliases worth knowing
 
--   **Powerlevel10k** theme for a beautiful, informative prompt
--   **Syntax highlighting** for commands as you type
--   **History search** with arrow keys
--   Tmux session management shortcuts
+- **Navigation**: `..`, `...`, `....`, and `cdi` for an interactive zoxide jump
+- **Safety**: `cp`, `mv`, `rm`, `ln` all run with `-i`, so they ask before
+  overwriting or deleting. Use `command rm` in scripts to skip the prompt.
+- **Quick edits**: `zshrc`, `zsh_main`, `aliases`, `functions`, `nvimrc`
+- **Editor**: `vi` and `vim` both open `nvim`
+- **macOS**: `showfiles` / `hidefiles` toggle hidden files in Finder, `flush`
+  clears the DNS cache, `dsstore` deletes `.DS_Store` files recursively
+- **Tmux**: `tm`, `tma`, `tmn`, `tml`, `tmk`, the `-t` variants `tmat`, `tmnt`,
+  `tmkt`, the attach-or-create shortcuts `tm-main`, `tm-work`, `tm-dev`, and
+  `tmka` to kill the server
+- **Other**: `serve` starts a Python HTTP server on port 8000, `weather` and
+  `moon` query wttr.in, `preview` shows an image in the terminal with viu,
+  `info` prints the figlet banner and fastfetch, `reload` re-sources `.zshrc`
 
-## ⚙️ Installation
+Some aliases in the file are commented out, mostly git and npm shortcuts I
+decided not to keep. Uncomment what you want.
 
-1. **Create the config directory:**
+## Functions
 
-    ```bash
-    mkdir -p ~/.config/zsh
-    ```
+| Function          | What it does                                      |
+| ----------------- | ------------------------------------------------- |
+| `mkcd <dir>`      | Create a directory and cd into it                 |
+| `extract <file>`  | Unpack any common archive format                  |
+| `backup <file>`   | Copy to `<file>.bak`                              |
+| `genpass [len]`   | Random password, 16 characters by default         |
+| `cheat <cmd>`     | Cheat sheet for a command from cht.sh             |
+| `myipinfo`        | Public IP and location as JSON, needs `jq`        |
 
-2. **Copy the configuration files** to `~/.config/zsh/`:
+## Customizing
 
-    - `zsh_main`
-    - `zsh_aliases`
-    - `zsh_functions`
-
-3. **Update your `~/.zshrc`:**
-
-    ```bash
-    source ~/.config/zsh/zsh_main
-    source ~/.config/zsh/zsh_aliases
-    source ~/.config/zsh/zsh_functions
-    ```
-
-4. **Install Powerlevel10k configuration:**
-
-    ```bash
-    mkdir -p ~/.config/p10k
-    # Run p10k configure to set up your prompt
-    p10k configure
-    ```
-
-5. **Reload your shell:**
-    ```bash
-    source ~/.zshrc
-    # or use the alias:
-    reload
-    ```
-
-## Key Aliases & Functions
-
-### File Operations
-
--   `ls` → `eza --icons=always --group-directories-first --sort=extension`
--   `cat` → `bat` (syntax highlighting)
--   `find` → `fd` (faster, more intuitive)
--   `grep` → `rg` (ripgrep)
-
-### Navigation
-
--   `cd` → `z` (zoxide smart jumping)
--   `..` → `cd ..`
--   `mkcd <dir>` → create and enter directory
-
-### Development
-
--   `serve` → Start HTTP server on port 8000
--   `jsonpp` → Pretty print JSON with jq
--   `ni/nr/ns/nt` → npm install/run/start/test
-
-### System Info
-
--   `info` → Display welcome message with system info
--   `weather` → Current weather via wttr.in
--   `myipinfo` → Get public IP and location info
-
-### Utilities
-
--   `extract <file>` → Extract any archive format
--   `backup <file>` → Create .bak copy
--   `genpass [length]` → Generate random password
--   `cheat <command>` → Get command cheatsheet
-
-### Tmux Management
-
--   `tm` → tmux
--   `tma` → attach to session
--   `tm-main` → attach to 'main' session or create it
--   `tmka` → kill all sessions
-
-## Customization
-
-### Adding New Aliases
-
-Edit `~/.config/zsh/zsh_aliases` and add your aliases, then run `reload`.
-
-### Adding New Functions
-
-Edit `~/.config/zsh/zsh_functions` for custom shell functions.
-
-### Modifying Core Settings
-
-Edit `~/.config/zsh/zsh_main` for history settings, plugin loading, and key bindings.
-
-### Quick Config Access
-
--   `aliases` - Edit aliases file
--   `functions` - Edit functions file
--   `zsh_main` - Edit main config
--   `zshrc` - Edit main .zshrc
-
-## Fun Utilities
-
-Fun utilities include `fastfetch` and `cmatrix`:
-- To run `fastfetch` type `info` - displays system information with a stylized welcome message
-- For matrix effect type `matrix` - creates the classic Matrix digital rain effect in your terminal
-
-To read more about fastfetch click [here](../fastfetch/README.md)
+Edit the matching file and run `reload`. Aliases go in `zsh_aliases`, functions
+in `zsh_functions`, and anything touching the prompt, plugins, or history goes in
+`zsh_main`.

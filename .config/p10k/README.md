@@ -1,24 +1,34 @@
-# Powerlevel10k (P10k) ZSH Theme
+# Powerlevel10k Zsh Theme
 
-**NOTE:** Powerlevel10k has very limited support
+**Links:** [GitHub Repository](https://github.com/romkatv/powerlevel10k)
 
-**Links:** [Official Website](https://github.com/romkatv/powerlevel10k) | [GitHub Repository](https://github.com/romkatv/powerlevel10k/tree/master)
+**Note:** Powerlevel10k is in low-maintenance mode. The author recommends
+[Starship](https://starship.rs) for new setups. It still works well, so I have
+not moved.
 
 ## Why Powerlevel10k
 
-Powerlevel10k is a fast, customizable ZSH prompt theme that displays useful information about your current directory, git status, system performance, and more right in your terminal prompt. After trying various ZSH themes like oh-my-zsh's default themes, agnoster, and pure, Powerlevel10k stands out as the best combination of speed, features, and visual appeal. It's incredibly fast (100x faster than powerlevel9k), highly customizable, and comes with an excellent configuration wizard that makes setup effortless.
+A fast, informative prompt: directory, git status, exit codes, and timing,
+without the startup lag of older themes like powerlevel9k or agnoster. The
+instant-prompt feature draws the prompt before the rest of the shell finishes
+loading, so a new terminal is usable immediately.
 
-## Installation & Setup
+## Installation and setup
 
-- Install via Homebrew: `brew install powerlevel10k` (included in Brewfile)
-- Config file location: `~/.config/p10k/p10k.zsh` (deafault is just `~/.p10k.zsh`)
-- Run configuration wizard: `p10k configure`
+- `brew install powerlevel10k` (included in the Brewfile)
+- Config file: `~/.config/p10k/p10k.zsh`. The default location is `~/.p10k.zsh`;
+  `.config/zsh/zsh_main` sources it from here instead.
+- `zsh_main` also sources the instant-prompt cache, which must stay at the very
+  top of the shell startup or it prints a warning.
+- Requires `MesloLGS Nerd Font Mono` for the glyphs, installed by the Brewfile.
 
-## Powerlevel10k-specific commands to know
+## Commands to know
 
-**Configuration:**
-- `p10k configure` - Launch the interactive configuration wizard (Will overwrite old config)
-- `p10k reload` - Reload Powerlevel10k configuration after making changes
+- `p10k configure` - run the setup wizard. It overwrites the config file, so
+  commit or back up your current one first.
+- `p10k reload` - reload after editing the config by hand.
 
-**Customization:**
-- Edit `~/.config/p10k/p10k.zsh` directly for advanced customization
+## Notes
+
+`p10k.zsh` is the wizard's output, roughly 1,700 lines of documented options.
+Search it for the segment you want rather than reading it top to bottom.
