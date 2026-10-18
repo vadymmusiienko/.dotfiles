@@ -8,6 +8,13 @@ local M = {}
 M.base46 = {
     theme = "catppuccin",
 
+    -- Colors for the custom comment tags in after/queries/comment/highlights.scm.
+    -- Example: @comment.error (FIXME/BUG/ERROR)
+    hl_add = {
+        ["@comment.debug"] = { fg = "black", bg = "purple" },
+        ["@comment.error"] = { fg = "black", bg = "red" },
+    },
+
     -- hl_override = {
     -- 	Comment = { italic = true },
     -- 	["@comment"] = { italic = true },
