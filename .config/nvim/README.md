@@ -21,6 +21,7 @@ lua/mappings.lua          Key mappings
 lua/autocmds.lua          Dim inactive C/C++ preprocessor branches
 lua/plugins/init.lua      Plugin specs: conform, lspconfig, mason, treesitter
 lua/plugins/vim_tmux_nav.lua
+lua/plugins/render_markdown.lua
 lua/configs/lazy.lua      lazy.nvim options
 lua/configs/lspconfig.lua Language server setup
 lua/configs/conform.lua   Formatters and format-on-save
@@ -34,6 +35,11 @@ lua/configs/conform.lua   Formatters and format-on-save
 - **Mappings**: `;` enters command mode, `jk` leaves insert mode, and
   `Ctrl-h/j/k/l` move between splits and tmux panes through
   [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator).
+- **Markdown** (`plugins/render_markdown.lua`):
+  [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+  renders headings, checkboxes, code blocks and tables in the buffer, showing
+  the raw text on the cursor line. `<leader>md` toggles it in markdown files.
+  LaTeX math rendering is off.
 - **Language servers** (`configs/lspconfig.lua`): clangd, basedpyright, ruff,
   ts_ls, eslint, html, cssls, and lua_ls from the NvChad defaults. clangd runs
   with `--background-index`, `--clang-tidy`, and `--log=error`, the last because
