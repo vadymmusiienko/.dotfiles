@@ -49,6 +49,29 @@ the same keys move seamlessly between Neovim splits and tmux panes.
 Window switching is bound with `-r`, and `repeat-time` is 1000 ms, so after
 `prefix h` you can keep pressing `h` or `l` for a second without the prefix.
 
+### Nested tmux (tmux on a server over ssh)
+
+`prefix h` / `l` also work inside a tmux running in a pane, e.g. after
+`ssh server` + `tmux` with this same config on the server. They switch the
+server's windows first, and once you are on its first / last window, the next
+press moves to the previous / next local window. Holding `h` / `l` (repeat)
+crosses the boundary in both directions.
+
+How it works (see `NESTED TMUX` in `tmux.conf`):
+
+- A tmux running inside another tmux reports its window strip through the
+  terminal title, e.g. `tmux-nav:.*..` (2nd of 4 windows). Titles pass through
+  ssh untouched.
+- The local tmux reads that title from the pane and, when the server is not at
+  an edge, sends it a private key sequence (`User0` / `User1`) that switches
+  windows directly, bypassing its prefix.
+- It only forwards when the pane is running `ssh`, `mosh-client` or `tmux` and
+  is on the alternate screen, so a plain shell never receives stray keys after
+  the remote tmux detaches or exits.
+
+The server needs tmux 3.2 or newer and this config. Every other remote command
+still uses the prefix twice: `prefix prefix c`, `prefix prefix d`, and so on.
+
 ## Copy mode (vi style)
 
 `mode-keys vi`. Enter copy mode with `prefix [`.
