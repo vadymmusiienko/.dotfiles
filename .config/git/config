@@ -7,25 +7,60 @@
 [user]
 	name = Vadym Musiienko
 	email = musiienkovadym@gmail.com
-  # email = vmmv2023@mymail.pomona.edu
- 
+	# email = vmmv2023@mymail.pomona.edu
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+	format = ssh # Sign with the SSH key instead of GPG
+
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed_signers # Lets git verify signatures locally
+
+[commit]
+	gpgSign = true
+	verbose = true # Show the diff in the editor while writing the message
+
 [core]
-    editor = nvim -c "startinsert"
-    autocrlf = input # Fixes Windows line endings
-    pager = diff-so-fancy | less --tabs=4 -RF # Prettiese diff
-	  excludesfile = ~/.config/git/ignore
+	editor = nvim -c "startinsert"
+	autocrlf = input # Fixes Windows line endings
+	pager = diff-so-fancy | less --tabs=4 -RF # Prettiese diff
+	excludesfile = ~/.config/git/ignore
 
 [diff]
-	tool = vscode
+	algorithm = histogram # Cleaner diffs than the default myers
+	tool = nvimdiff
 
-[difftool "vscode"]
-	cmd = "code --wait --diff $LOCAL $REMOTE"
+[merge]
+	conflictStyle = zdiff3 # Conflict markers also show the original "base" version
+	tool = nvimdiff
+
+[rerere]
+	enabled = true # Remember conflict resolutions and reuse them (useful with rebase)
+
+[rebase]
+	autoStash = true # pull/rebase works with a dirty tree
+	updateRefs = true # Rebasing stacked branches moves the ones in between too
+
+[push]
+	autoSetupRemote = true # First push on a new branch works without -u origin <branch>
+
+[fetch]
+	prune = true # Delete local refs to remote branches that are gone
+
+[branch]
+	sort = -committerdate # `git branch` lists recent branches first
+
+[tag]
+	sort = version:refname # v1.10 sorts after v1.9
+
+[help]
+	autocorrect = prompt # `git stauts` offers to run `git status`
 
 [init]
 	defaultBranch = main
 
 [interactive] # Prettier patch mode (git add -p)
-    diffFilter = diff-so-fancy --patch
+	diffFilter = diff-so-fancy --patch
 
 [color]
 	ui = true # Colored output globally
@@ -44,3 +79,6 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+
+[pull]
+	rebase = true
